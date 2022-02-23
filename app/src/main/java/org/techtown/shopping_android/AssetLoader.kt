@@ -7,7 +7,7 @@ class AssetLoader {
     fun getJsonString(context: Context, fileName: String): String?{
         return kotlin.runCatching {
             loadAsset(context,fileName)
-        }.getOrNull()
+        }.getOrNull()       // 성공하면 값 반환 실패하면 null
     }
 
     // 아래 함수를 통해 사용자가 얻고자하는 데이터는 json 포맷을 string으로 변환한 값이므로 반환 타입을 string으로 변경
