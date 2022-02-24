@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import org.json.JSONObject
 
 class HomeFragment: Fragment() {
 
@@ -31,6 +32,27 @@ class HomeFragment: Fragment() {
         val assetLoader = AssetLoader()
         val homeData= assetLoader.getJsonString(requireContext(),"home.json")
         Log.d("homeData", homeData ?:"")
+
+        if (!homeData.isNullOrEmpty()){
+
+            val jsonObject = JSONObject(homeData)
+            val title = jsonObject.getJSONObject("title")
+            val text = title.getString("text")
+            val iconUrl = title.getString("icon_url")
+
+            //Title 데이터클래스 적용
+            val titleValue = Title(text,iconUrl)
+            titleValue.text
+
+            val topBanners = jsonObject.getJSONArray("top_banners")
+            val firstBanner = topBanners.getJSONObject(0)
+            firstBanner.getString("label")
+            val produstDetail = firstBanner.getJSONObject("product_detail")
+            val price = produstDetail.getInt("price")
+
+            Log.d("title","text=${text}, iconUrl=${iconUrl}")
+
+        }
     }
 
 }
