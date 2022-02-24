@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import org.json.JSONObject
 
 class HomeFragment: Fragment() {
@@ -43,8 +44,8 @@ class HomeFragment: Fragment() {
 
 
             toolbarTitle.text = text
-            GlideApp.with(this)
-                .load(iconUrl)
+            Glide.with(this)
+                .load(R.drawable.ic_gnb_back)
                 .into(toolbarIcon)
 
 
