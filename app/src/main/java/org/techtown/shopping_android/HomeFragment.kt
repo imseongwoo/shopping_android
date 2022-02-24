@@ -1,11 +1,14 @@
 package org.techtown.shopping_android
 
+import android.media.Image
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import org.json.JSONObject
 
@@ -22,12 +25,10 @@ class HomeFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val button = view.findViewById<Button>(R.id.btn_enter_product_detail)
-        button.setOnClickListener {
-            val transaction = parentFragmentManager.beginTransaction()
-            transaction.add(R.id.container_main,ProductDetailFragment())
-            transaction.commit()
-        }
+        val toolbarTitle = view.findViewById<TextView>(R.id.toolbar_home_title)
+        val toolbarIcon = view.findViewById<ImageView>(R.id.toolbar_home_icon)
+
+
 
         val assetLoader = AssetLoader()
         val homeData= assetLoader.getJsonString(requireContext(),"home.json")
@@ -40,17 +41,13 @@ class HomeFragment: Fragment() {
             val text = title.getString("text")
             val iconUrl = title.getString("icon_url")
 
-            //Title 데이터클래스 적용
-            val titleValue = Title(text,iconUrl)
-            titleValue.text
 
-            val topBanners = jsonObject.getJSONArray("top_banners")
-            val firstBanner = topBanners.getJSONObject(0)
-            firstBanner.getString("label")
-            val produstDetail = firstBanner.getJSONObject("product_detail")
-            val price = produstDetail.getInt("price")
+            toolbarTitle.text = text
+            GlideApp.with(this)
+                .load(iconUrl)
+                .into(toolbarIcon)
 
-            Log.d("title","text=${text}, iconUrl=${iconUrl}")
+
 
         }
     }

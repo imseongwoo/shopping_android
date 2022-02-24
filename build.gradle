@@ -22,6 +22,7 @@ allprojects {
 }
 ext {
     navVersion = '2.3.5'
+    glideVersion = '4.11.0'
 }
 
 task clean(type: Delete) {
