@@ -14,6 +14,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <TextView
+        android:id="@+id/tv_banner_badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/shoppi_white"
+        android:paddingStart="7dp"
+        android:paddingEnd="7dp"
+        android:paddingTop="1dp"
+        android:paddingBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_banner_title"
+        app:layout_constraintStart_toStartOf="@+id/iv_banner_image"
+        android:layout_marginBottom="7dp"
+        android:layout_marginStart="26dp"
+        tools:text="기획전"
+        tools:background="@color/shoppi_grey_02"
+
+        />
+
+    <TextView
+        android:id="@+id/tv_banner_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/bg_banner_product_detail"
+        app:layout_constraintEnd_toEndOf="@+id/iv_banner_image"
+        app:layout_constraintStart_toStartOf="@+id/iv_banner_image"
+        tools:text="따스한 겨울 \n 준비하기" />
+
     <View
         android:id="@+id/bg_banner_product_detail"
         android:layout_width="288dp"
@@ -76,19 +107,18 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="3dp"
         android:layout_marginTop="7dp"
-        app:layout_constraintStart_toEndOf="@id/tv_banner_detail_product_discount_rate"
         app:layout_constraintBottom_toBottomOf="@id/tv_banner_detail_product_discount_rate"
+        app:layout_constraintStart_toEndOf="@id/tv_banner_detail_product_discount_rate"
         tools:text="72000원" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/tv_banner_detail_product_discount_price"
-        app:layout_constraintBottom_toBottomOf="@id/tv_banner_detail_product_discount_price"
-        tools:text="102000원"
-        android:layout_marginBottom="1dp"
         android:layout_marginStart="4dp"
-        />
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_banner_detail_product_discount_price"
+        app:layout_constraintStart_toEndOf="@id/tv_banner_detail_product_discount_price"
+        tools:text="102000원" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
